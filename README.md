@@ -147,15 +147,24 @@ On successful login, the response contains a bearer token, token type, expiratio
 
 ### User
 
-| Method | Endpoint | Authentication | Description |
-|---|---|---|---|
+| Method | Endpoint | Authentication | Description                              |
+|---|---|---|------------------------------------------|
 | `PUT` | `/user/update/name` | JWT required | Update the authenticated user's username |
+ | `PUT` | `/user/update/password` | JWT required | Update the authenticated user's password |
 
-Request:
+Update username request:
 
 ```json
 {
   "toApply": "alexander"
+}
+```
+
+Update password request (must be between 8-40 characters, has at least one of these characters with no space: letters, numbers, special characters):
+
+```json 
+{
+  "toApply": "new-password1" 
 }
 ```
 
