@@ -29,4 +29,14 @@ public class UserController {
 	) {
 		return userService.updateUsername(JwtPrincipal.userId(jwt), request);
 	}
+
+	@PutMapping("/update/password")
+	public ApiResponse<UserResponse> updatePassword(
+			@Valid @RequestBody UpdateUserRequest<String> request,
+			@AuthenticationPrincipal Jwt jwt
+	) {
+		return userService.updateAccountPassword(JwtPrincipal.userId(jwt), request);
+	}
+
+
 }
